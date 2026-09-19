@@ -2,36 +2,34 @@
 
 ## 📌 Overview
 
-This project performs exploratory data analysis on a
-Cardiotocographic dataset using Python.
+This project performs Exploratory Data Analysis (EDA) on a Cardiotocographic dataset using Python.
 
-The analysis focuses on understanding the structure and quality
-of the dataset, examining feature distributions, identifying
-missing values and potential outliers, and studying relationships
-between numerical variables and the NSP target variable.
+The analysis focuses on understanding the structure and quality of the dataset, identifying missing values and outliers, exploring feature distributions, and analyzing relationships between cardiotocographic measurements.
+
+The project was developed using Python, Pandas, NumPy, Matplotlib, Seaborn, and Jupyter Notebook.
 
 ---
 
 ## 🎯 Objectives
 
-- Explore the structure of the dataset
-- Analyze descriptive statistics
+- Load and understand the Cardiotocographic dataset
+- Explore the structure and characteristics of the data
+- Perform data cleaning and preparation
 - Identify missing values
-- Check duplicate records
-- Examine feature distributions
-- Detect potential outliers
-- Analyze correlations between variables
-- Study feature distributions across NSP classes
-- Extract meaningful observations from the data
+- Analyze descriptive statistics
+- Detect and handle outliers using the IQR method
+- Study feature distributions
+- Analyze relationships between numerical variables
+- Examine correlations between features
+- Generate meaningful visualizations from the dataset
 
 ---
 
 ## 📊 Dataset
 
-The dataset contains:
+The dataset contains **2,126 observations and 14 numerical variables**.
 
-- 2,126 observations
-- 14 numerical variables
+The variables represent cardiotocographic measurements, while `NSP` represents the fetal state classification.
 
 ### Features
 
@@ -44,10 +42,10 @@ The dataset contains:
 | DL | Light decelerations |
 | DS | Severe decelerations |
 | DP | Prolonged decelerations |
-| ASTV | Short-term variability measure |
-| MSTV | Mean short-term variability |
-| ALTV | Long-term variability measure |
-| MLTV | Mean long-term variability |
+| ASTV | Percentage of abnormal short-term variability |
+| MSTV | Mean value of short-term variability |
+| ALTV | Percentage of abnormal long-term variability |
+| MLTV | Mean value of long-term variability |
 | Width | Histogram width |
 | Tendency | Histogram tendency |
 | NSP | Fetal state classification |
@@ -67,42 +65,68 @@ The dataset contains:
 
 ## 🔍 Analysis Performed
 
-### 1. Data Understanding
-- Dataset shape
-- Column names
+### 1. Data Loading and Exploration
+
+The dataset was loaded into a Pandas DataFrame and examined using:
+
+- `head()`
+- `shape`
+- `columns`
+- `info()`
+- `describe()`
+
+### 2. Data Cleaning
+
+The dataset was examined for:
+
+- Missing values
 - Data types
-- Descriptive statistics
+- Duplicate records
+- Potential outliers
 
-### 2. Data Quality
-- Missing-value analysis
-- Duplicate detection
-- Data-type inspection
+### 3. Outlier Analysis
 
-### 3. Exploratory Data Analysis
-- Feature distributions
-- Histograms
-- Boxplots
-- Target distribution
-- Correlation heatmap
+The Interquartile Range (IQR) method was used to identify potential outliers in numerical variables.
 
-### 4. Outlier Analysis
-- IQR-based outlier detection
-- Feature-level outlier summary
+Boxplots were created to visualize the distribution and potential outliers before and after the outlier-handling process.
 
-### 5. Target Analysis
-- NSP class distribution
-- Feature distributions across NSP classes
+### 4. Distribution Analysis
+
+Histograms and other visualizations were used to understand the distribution of numerical features.
+
+### 5. Correlation Analysis
+
+A correlation heatmap was created to examine relationships between numerical variables.
+
+### 6. Feature Relationship Analysis
+
+Scatter plots and pair plots were used to explore relationships between selected variables.
 
 ---
 
-## 📈 Key Findings
+## 📈 Visualizations
 
-The analysis identified differences in feature distributions,
-missing values across selected variables, potential outliers,
-and relationships between numerical features.
+The notebook contains several visualizations, including:
 
-The NSP target variable contains multiple classes, providing
-a basis for further classification-oriented analysis.
+- Numerical feature boxplots
+- Feature distribution histograms
+- Scatter plots
+- Correlation heatmap
+- Pair plot
+- Violin plot
+
+All visualizations are available directly inside the Jupyter Notebook.
+
+---
+
+## 💡 Key Insights
+
+- The dataset contains 2,126 observations across 14 numerical variables.
+- Several variables contain missing values that require data-quality consideration.
+- Numerical variables show different ranges and distributions.
+- Boxplot analysis highlights potential outliers across several features.
+- Correlation analysis helps identify relationships between cardiotocographic measurements.
+- Feature-level visualizations provide a better understanding of the variation within the dataset.
 
 ---
 
@@ -115,9 +139,6 @@ maternal-fetal-health-analysis/
 │   └── Cardiotocographic.csv
 │
 ├── notebook/
-│   └── maternal_fetal_health_eda.ipynb
+│   └── 5_EDA_assignment.ipynb
 │
-├── images/
-│   └── analysis_visualizations
-│
-├── README.md
+└── README.md
