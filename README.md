@@ -121,5 +121,3 @@ maternal-fetal-health-analysis/
 │   └── analysis_visualizations
 │
 ├── README.md
-├── requirements.txt
-└── .gitignore# maternal-fetal-health-analysis
